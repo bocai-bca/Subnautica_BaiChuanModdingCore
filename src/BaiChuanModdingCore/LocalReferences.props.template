@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup>
+    <!-- 通往.../BepInEx/core的路径 -->
+    <BepInExCore></BepInExCore>
+    <!-- 通往.../Subnautica_Data的路径 -->
+    <SubnauticaData></SubnauticaData>
+  </PropertyGroup>
+</Project>
