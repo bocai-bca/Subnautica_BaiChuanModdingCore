@@ -38,12 +38,17 @@
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
-        <Reference Include="$(BepInExCore)\*.dll"/>
-        <Reference Include="$(SubnauticaData)\Managed\*.dll"/>
+        <Reference Include="$(BepInExCore)\0Harmony.dll"/>
+        <Reference Include="$(BepInExCore)\BepInEx.dll"/>
+        <Reference Include="$(SubnauticaData)\Managed\Assembly-CSharp.dll"/>
+        <Reference Include="$(SubnauticaData)\Managed\UnityEngine.CoreModule.dll"/>
+        <Reference Include="$(SubnauticaData)\Managed\UnityEngine.dll"/>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BaiChuanModdingCore.cs" />
-        <Compile Include="Logger.cs" />
+        <Compile Include="PatcherBase.cs" />
+        <Compile Include="Patchers\PrecursorIonBattery.cs" />
+        <Compile Include="PatchingEntry.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
