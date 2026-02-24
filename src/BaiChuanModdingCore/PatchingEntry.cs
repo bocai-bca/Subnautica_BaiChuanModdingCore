@@ -13,13 +13,18 @@ namespace BaiChuanModdingCore
 		{
 			new PrecursorIonBattery(),
 		};
-		
+
 		/// <summary>
 		/// 执行所有修补行为的入口方法，应当在游戏的MainMenuMusic启动播放后调用，以确保执行时已完成所有游戏资源的载入
 		/// </summary>
 		// ReSharper disable once UnusedMember.Global
 		public static void StartPatching()
 		{
+			if (patched)
+			{
+				return;
+			}
+			patched = true;
 			BaiChuanModdingCore.logger.LogMessage("Starting patching process.");
 			foreach (PatcherBase taskPatcher in taskPatchers)
 			{
@@ -44,5 +49,7 @@ namespace BaiChuanModdingCore
 			}
 			taskPatchers = null;
 		}
+
+		public static bool patched = false;
 	}
 }

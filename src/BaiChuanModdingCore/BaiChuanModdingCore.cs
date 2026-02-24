@@ -1,3 +1,4 @@
+using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
@@ -11,7 +12,7 @@ namespace BaiChuanModdingCore
 		
 		private void Awake()
 		{
-			harmony.Patch(original: typeof(MainMenuMusic).GetMethod("Play"), postfix: new HarmonyMethod(typeof(PatchingEntry).GetMethod("StartPatching")));
+			harmony.Patch(original: typeof(WaterSurface).GetMethod("Start", BindingFlags.NonPublic | BindingFlags.Instance), postfix: new HarmonyMethod(typeof(PatchingEntry).GetMethod("StartPatching")));
 			logger = Logger;
 			logger.LogMessage("Loaded.");
 		}
