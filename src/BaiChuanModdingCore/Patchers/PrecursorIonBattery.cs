@@ -12,14 +12,15 @@ namespace BaiChuanModdingCore.Patchers
 				TechType.PrecursorIonBattery,
 			};
 		}
-		internal override void DoPatching(List<GameObject> prefabGameObjects)
+		internal override bool DoPatching(List<GameObject> prefabGameObjects)
 		{
 			Battery battery = prefabGameObjects[0].GetComponent<Battery>();
 			if (battery == null)
 			{
-				return;
+				return false;
 			}
 			battery._charge = battery._capacity = 520f;
+			return true;
 		}
 	}
 }

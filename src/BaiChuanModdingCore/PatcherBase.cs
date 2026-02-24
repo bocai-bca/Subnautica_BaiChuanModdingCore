@@ -18,6 +18,7 @@ namespace BaiChuanModdingCore
 		/// 执行修补的入口方法，将由PatchingEntry调用
 		/// </summary>
 		/// <param name="prefabGameObjects">所有由GetTargetTechTypes()给定的TechType的prefab，在列表中的顺序与GetTargetTechTypes()给定的顺序一致</param>
-		internal abstract void DoPatching(List<GameObject> prefabGameObjects);
+		/// <returns>补丁运作的成功与否</returns>
+		internal abstract bool DoPatching(List<GameObject> prefabGameObjects);
 	}
 }

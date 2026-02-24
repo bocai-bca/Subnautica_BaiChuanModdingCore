@@ -32,7 +32,7 @@ namespace BaiChuanModdingCore
 				List<GameObject> prefabGameObjects = new List<GameObject>();
 				foreach (TechType targetTechType in taskPatcher.GetTargetTechTypes())
 				{
-					GameObject thisPrefab = CraftData.GetPrefabForTechType(targetTechType);
+					GameObject thisPrefab = CraftData.GetPrefabForTechType(targetTechType, false);
 					if (thisPrefab == null)
 					{
 						BaiChuanModdingCore.logger.LogError("Could not found prefab of the target TechType " + targetTechType);
@@ -44,12 +44,18 @@ namespace BaiChuanModdingCore
 				{
 					continue;
 				}
-				BaiChuanModdingCore.logger.LogMessage("Starting patcher " + taskPatcher.GetType().Name);
-				taskPatcher.DoPatching(prefabGameObjects);
+				string patcherName = taskPatcher.GetType().Name;
+				BaiChuanModdingCore.logger.LogMessage("Starting patcher " + patcherName);
+				if (taskPatcher.DoPatching(prefabGameObjects))
+				{
+					BaiChuanModdingCore.logger.LogMessage(patcherName + " run successfully.");
+				}
+				else
+				{
+					BaiChuanModdingCore.logger.LogError(patcherName + " run failed.");
+				}
 			}
-			taskPatchers = null;
 		}
-
-		public static bool patched = false;
+		public static bool patched;
 	}
 }
