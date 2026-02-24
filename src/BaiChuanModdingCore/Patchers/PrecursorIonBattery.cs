@@ -19,7 +19,7 @@ namespace BaiChuanModdingCore.Patchers
 			{
 				return false;
 			}
-			battery._charge = battery._capacity = 520f;
+			battery ._charge = battery._capacity = 1500f;
 			return true;
 		}
 	}
