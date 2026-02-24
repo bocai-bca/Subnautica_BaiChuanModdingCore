@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace BaiChuanCustomCore.Patchers
+namespace BaiChuanModdingCore.Patchers
 {
 	internal class PrecursorIonBattery : PatcherBase
 	{

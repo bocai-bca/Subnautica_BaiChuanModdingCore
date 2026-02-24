@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace BaiChuanCustomCore
+namespace BaiChuanModdingCore
 {
 	/// <summary>
 	/// 补丁类型基类，所有的补丁都应该继承自本类型，并在实现后于PatchingEntry中添加实例到taskPatchers字段。子类名字可以随便起，该名字将被输出到日志

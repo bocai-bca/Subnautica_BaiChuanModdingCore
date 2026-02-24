@@ -2,9 +2,9 @@ using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 
-namespace BaiChuanCustomCore
+namespace BaiChuanModdingCore
 {
-	[BepInPlugin("net.bcasoft.baichuanmoddingcore", "BaiChuanModdingCore", "0.0.1.0")]
+	[BepInPlugin("net.bcasoft.baichuanmoddingcore", "BaiChuanModdingCore", "0.0.2.0")]
 	public class BaiChuanModdingCore : BaseUnityPlugin
 	{
 		internal Harmony harmony = new Harmony("net.bcasoft.baichuanmoddingcore");
@@ -13,7 +13,7 @@ namespace BaiChuanCustomCore
 		{
 			harmony.Patch(original: typeof(MainMenuMusic).GetMethod("Play"), postfix: new HarmonyMethod(typeof(PatchingEntry).GetMethod("StartPatching")));
 			logger = Logger;
-			logger.LogInfo("BaiChuanModdingCore: Loaded.");
+			logger.LogMessage("Loaded.");
 		}
 
 		internal static ManualLogSource logger;

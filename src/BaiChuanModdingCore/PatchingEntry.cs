@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using BaiChuanCustomCore.Patchers;
+using BaiChuanModdingCore.Patchers;
 using UnityEngine;
 
-namespace BaiChuanCustomCore
+namespace BaiChuanModdingCore
 {
 	public class PatchingEntry
 	{
@@ -18,9 +18,9 @@ namespace BaiChuanCustomCore
 		/// 执行所有修补行为的入口方法，应当在游戏的MainMenuMusic启动播放后调用，以确保执行时已完成所有游戏资源的载入
 		/// </summary>
 		// ReSharper disable once UnusedMember.Global
-		internal static void StartPatching()
+		public static void StartPatching()
 		{
-			BaiChuanModdingCore.logger.LogInfo("BaiChuanModdingCore: Starting patching process.");
+			BaiChuanModdingCore.logger.LogMessage("Starting patching process.");
 			foreach (PatcherBase taskPatcher in taskPatchers)
 			{
 				bool wasFailed = false;
@@ -30,7 +30,7 @@ namespace BaiChuanCustomCore
 					GameObject thisPrefab = CraftData.GetPrefabForTechType(targetTechType);
 					if (thisPrefab == null)
 					{
-						BaiChuanModdingCore.logger.LogError("BaiChuanModdingCore: Could not found prefab of the target TechType " + targetTechType);
+						BaiChuanModdingCore.logger.LogError("Could not found prefab of the target TechType " + targetTechType);
 						wasFailed = true;
 					}
 					prefabGameObjects.Add(thisPrefab);
@@ -39,7 +39,7 @@ namespace BaiChuanCustomCore
 				{
 					continue;
 				}
-				BaiChuanModdingCore.logger.LogInfo("BaiChuanModdingCore: Starting patcher " + taskPatcher.GetType().Name);
+				BaiChuanModdingCore.logger.LogMessage("Starting patcher " + taskPatcher.GetType().Name);
 				taskPatcher.DoPatching(prefabGameObjects);
 			}
 			taskPatchers = null;
