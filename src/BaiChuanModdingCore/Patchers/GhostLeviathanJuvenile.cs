@@ -12,14 +12,15 @@ namespace BaiChuanModdingCore.Patchers
 				TechType.GhostLeviathanJuvenile,
 			};
 		}
-		internal override void DoPatching(List<GameObject> prefabGameObjects)
+		internal override bool DoPatching(List<GameObject> prefabGameObjects)
 		{
 			LiveMixin liveMixin = prefabGameObjects[0].GetComponent<LiveMixin>();
 			if (liveMixin == null)
 			{
-				return;
+				return false;
 			}
 			liveMixin.data.maxHealth = liveMixin.health = 315000f;
+			return true;
 		}
 	}
 }

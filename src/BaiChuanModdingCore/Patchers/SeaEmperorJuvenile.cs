@@ -12,14 +12,15 @@ namespace BaiChuanModdingCore.Patchers
 				TechType.SeaEmperorJuvenile,
 			};
 		}
-		internal override void DoPatching(List<GameObject> prefabGameObjects)
+		internal override bool DoPatching(List<GameObject> prefabGameObjects)
 		{
 			LiveMixin liveMixin = prefabGameObjects[0].GetComponent<LiveMixin>();
 			if (liveMixin == null)
 			{
-				return;
+				return false;
 			}
 			liveMixin.data.maxHealth = liveMixin.health = 225000f;
+			return true;
 		}
 	}
 }
