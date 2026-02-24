@@ -47,7 +47,13 @@
     <ItemGroup>
         <Compile Include="BaiChuanModdingCore.cs" />
         <Compile Include="PatcherBase.cs" />
+        <Compile Include="Patchers\GhostLeviathan.cs" />
+        <Compile Include="Patchers\GhostLeviathanJuvenile.cs" />
         <Compile Include="Patchers\PrecursorIonBattery.cs" />
+        <Compile Include="Patchers\ReaperLeviathan.cs" />
+        <Compile Include="Patchers\Reefback.cs" />
+        <Compile Include="Patchers\SeaDragon.cs" />
+        <Compile Include="Patchers\SeaEmperorJuvenile.cs" />
         <Compile Include="PatchingEntry.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>

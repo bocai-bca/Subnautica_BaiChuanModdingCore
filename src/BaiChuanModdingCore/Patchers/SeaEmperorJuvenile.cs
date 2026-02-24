@@ -1,25 +1,25 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BaiChuanModdingCore.Patchers
 {
-	internal class PrecursorIonBattery : PatcherBase
+	internal class SeaEmperorJuvenile : PatcherBase
 	{
 		internal override List<TechType> GetTargetTechTypes()
 		{
 			return new List<TechType>()
 			{
-				TechType.PrecursorIonBattery,
+				TechType.SeaEmperorJuvenile,
 			};
 		}
 		internal override void DoPatching(List<GameObject> prefabGameObjects)
 		{
-			Battery battery = prefabGameObjects[0].GetComponent<Battery>();
-			if (battery == null)
+			LiveMixin liveMixin = prefabGameObjects[0].GetComponent<LiveMixin>();
+			if (liveMixin == null)
 			{
 				return;
 			}
-			battery ._charge = battery._capacity = 1500f;
+			liveMixin.data.maxHealth = liveMixin.health = 225000f;
 		}
 	}
 }

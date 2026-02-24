@@ -12,6 +12,12 @@ namespace BaiChuanModdingCore
 		private static List<PatcherBase> taskPatchers =  new List<PatcherBase>()
 		{
 			new PrecursorIonBattery(),
+			new Patchers.ReaperLeviathan(),
+			new Patchers.GhostLeviathan(),
+			new Patchers.GhostLeviathanJuvenile(),
+			new Patchers.SeaDragon(),
+			new Patchers.SeaEmperorJuvenile(),
+			new Patchers.Reefback(),
 		};
 
 		/// <summary>
