@@ -1,25 +1,21 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BaiChuanModdingCore.Patchers
 {
-	internal class PrecursorIonBattery : PatcherBase
+	public class PrecursorIonBattery : PatcherBase
 	{
-		internal override List<TechType> GetTargetTechTypes()
+		public override TechType GetTargetTechType()
 		{
-			return new List<TechType>()
-			{
-				TechType.PrecursorIonBattery,
-			};
+			return TechType.PrecursorIonBattery;
 		}
-		internal override bool DoPatching(List<GameObject> prefabGameObjects)
+		public override bool DoPatching(GameObject prefabGameObjects)
 		{
-			Battery battery = prefabGameObjects[0].GetComponent<Battery>();
+			Battery battery = prefabGameObjects.GetComponent<Battery>();
 			if (battery == null)
 			{
 				return false;
 			}
-			battery ._charge = battery._capacity = 1500f;
+			battery._charge = battery._capacity = 1500f;
 			return true;
 		}
 	}

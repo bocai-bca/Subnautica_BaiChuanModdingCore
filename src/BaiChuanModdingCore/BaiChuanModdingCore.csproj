@@ -41,6 +41,7 @@
         <Reference Include="$(BepInExCore)\0Harmony.dll"/>
         <Reference Include="$(BepInExCore)\BepInEx.dll"/>
         <Reference Include="$(SubnauticaData)\Managed\Assembly-CSharp.dll"/>
+        <Reference Include="$(SubnauticaData)\Managed\Assembly-CSharp-firstpass.dll"/>
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.CoreModule.dll"/>
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.dll"/>
     </ItemGroup>
@@ -54,7 +55,8 @@
         <Compile Include="Patchers\Reefback.cs" />
         <Compile Include="Patchers\SeaDragon.cs" />
         <Compile Include="Patchers\SeaEmperorJuvenile.cs" />
-        <Compile Include="PatchingEntry.cs" />
+        <Compile Include="PatcherManager.cs" />
+        <Compile Include="Patch_CraftData.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>

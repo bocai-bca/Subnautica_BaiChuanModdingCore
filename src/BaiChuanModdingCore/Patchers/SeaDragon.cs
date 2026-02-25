@@ -3,18 +3,15 @@ using UnityEngine;
 
 namespace BaiChuanModdingCore.Patchers
 {
-	internal class SeaDragon : PatcherBase
+	public class SeaDragon : PatcherBase
 	{
-		internal override List<TechType> GetTargetTechTypes()
+		public override TechType GetTargetTechType()
 		{
-			return new List<TechType>()
-			{
-				TechType.SeaDragon,
-			};
+			return TechType.SeaDragon;
 		}
-		internal override bool DoPatching(List<GameObject> prefabGameObjects)
+		public override bool DoPatching(GameObject prefabGameObjects)
 		{
-			LiveMixin liveMixin = prefabGameObjects[0].GetComponent<LiveMixin>();
+			LiveMixin liveMixin = prefabGameObjects.GetComponent<LiveMixin>();
 			if (liveMixin == null)
 			{
 				return false;
