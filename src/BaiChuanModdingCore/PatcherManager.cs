@@ -4,7 +4,7 @@ using BaiChuanModdingCore.Patchers;
 
 namespace BaiChuanModdingCore
 {
-	public class PatcherManager
+	public static class PatcherManager
 	{
 		/// <summary>
 		/// 获取适用于给定TechType的补丁类
@@ -19,7 +19,7 @@ namespace BaiChuanModdingCore
 		/// <summary>
 		/// 记录所有待修补的补丁类型实例
 		/// </summary>
-		private static List<PatcherBase> taskPatchers = new List<PatcherBase>()
+		public static List<PatcherBase> taskPatchers = new List<PatcherBase>()
 		{
 			new PrecursorIonBattery(),
 			new Patchers.ReaperLeviathan(),

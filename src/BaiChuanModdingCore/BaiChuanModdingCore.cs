@@ -5,7 +5,7 @@ using HarmonyLib;
 
 namespace BaiChuanModdingCore
 {
-	[BepInPlugin("net.bcasoft.baichuanmoddingcore", "BaiChuanModdingCore", "0.1.0.0")]
+	[BepInPlugin("net.bcasoft.baichuanmoddingcore", "BaiChuanModdingCore", "0.1.1.0")]
 	public class BaiChuanModdingCore : BaseUnityPlugin
 	{
 		internal Harmony harmony = new Harmony("net.bcasoft.baichuanmoddingcore");
