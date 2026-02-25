@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BaiChuanModdingCore
 {
@@ -23,7 +22,7 @@ namespace BaiChuanModdingCore
 				BaiChuanModdingCore.logger.LogMessage("Successed to run patcher on TechType " + __state);
 				return;
 			}
-			BaiChuanModdingCore.logger.LogInfo("No patcher was registed for TechType " + __state);
+			//BaiChuanModdingCore.logger.LogInfo("No patcher was registed for TechType " + __state);
 		}
 
 		public static void PostfixAsync(TechType __state, ref CoroutineTask<GameObject> __result)
@@ -41,7 +40,7 @@ namespace BaiChuanModdingCore
 				} while (__result.MoveNext());
 				return;
 			}
-			BaiChuanModdingCore.logger.LogInfo("No patcher was registed for TechType " + __state);
+			//BaiChuanModdingCore.logger.LogInfo("No patcher was registed for TechType " + __state);
 		}
 	}
 }
