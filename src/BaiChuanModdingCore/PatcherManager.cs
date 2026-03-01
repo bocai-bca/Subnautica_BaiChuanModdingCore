@@ -22,6 +22,7 @@ namespace BaiChuanModdingCore
 		public static List<PatcherBase> taskPatchers = new List<PatcherBase>()
 		{
 			new PrecursorIonBattery(),
+			new PrecursorIonPowerCell(),
 			new Patchers.ReaperLeviathan(),
 			new Patchers.GhostLeviathan(),
 			new GhostLeviathanJuvenile(),

@@ -51,6 +51,7 @@
         <Compile Include="Patchers\GhostLeviathan.cs" />
         <Compile Include="Patchers\GhostLeviathanJuvenile.cs" />
         <Compile Include="Patchers\PrecursorIonBattery.cs" />
+        <Compile Include="Patchers\PrecursorIonPowerCell.cs" />
         <Compile Include="Patchers\ReaperLeviathan.cs" />
         <Compile Include="Patchers\Reefback.cs" />
         <Compile Include="Patchers\SeaDragon.cs" />
