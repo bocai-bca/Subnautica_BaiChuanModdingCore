@@ -11,7 +11,7 @@ namespace BaiChuanModdingCore
 		/// </summary>
 		/// <param name="techType">目标TechType</param>
 		/// <returns>适用于给定TechType的补丁类，在未找到时返回null</returns>
-		public static PatcherBase GetPatcherForTechType(TechType techType)
+		public static PatcherBase? GetPatcherForTechType(TechType techType)
 		{
 			return taskPatchers.FirstOrDefault(patcher => patcher.GetTargetTechType() == techType);
 		}
