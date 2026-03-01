@@ -8,18 +8,20 @@ namespace BaiChuanModdingCore
 {
 	public class MainMenuMusicModded
 	{
-		public static void PlayPostfix(MainMenuMusic __instance)
+		public static void PlayManually()
 		{
 			modMusicChannel?.stop();
-			if (modMusic != null)
-			{
-				Bus bus = RuntimeManager.GetBus("bus:/master/nofilter/music");
-				RESULT result = bus.getChannelGroup(out ChannelGroup channelGroup);
-				if (result != RESULT.OK) return;
-				result = RuntimeManager.LowlevelSystem.playSound((Sound)modMusic, channelGroup, false, out Channel channel);
-				if (result != RESULT.OK) return;
-				modMusicChannel = channel;
-			}
+			if (modMusic == null) return;
+			Bus bus = RuntimeManager.GetBus("bus:/master/nofilter/music");
+			RESULT result = bus.getChannelGroup(out ChannelGroup channelGroup);
+			if (result != RESULT.OK) return;
+			result = RuntimeManager.LowlevelSystem.playSound((Sound)modMusic, channelGroup, false, out Channel channel);
+			if (result != RESULT.OK) return;
+			modMusicChannel = channel;
+		}
+		public static void PlayPostfix(MainMenuMusic __instance)
+		{
+			PlayManually();
 		}
 
 		public static void StopPostfix(MainMenuMusic __instance)

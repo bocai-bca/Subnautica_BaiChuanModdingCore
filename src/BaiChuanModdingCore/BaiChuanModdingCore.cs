@@ -5,7 +5,7 @@ using HarmonyLib;
 
 namespace BaiChuanModdingCore
 {
-	[BepInPlugin("net.bcasoft.baichuanmoddingcore", "BaiChuanModdingCore", "0.1.1.0")]
+	[BepInPlugin("net.bcasoft.baichuanmoddingcore", "BaiChuanModdingCore", "0.1.2.0")]
 	public class BaiChuanModdingCore : BaseUnityPlugin
 	{
 		internal Harmony harmony = new Harmony("net.bcasoft.baichuanmoddingcore");
@@ -24,8 +24,18 @@ namespace BaiChuanModdingCore
 				logger?.LogError("Failed to load mod music.");
 			}
 			logger?.LogMessage("Loaded.");
+		}
+
+		private void Start()
+		{
+			Invoke(nameof(InitMusicPlay), 1f);
+		}
+
+		public void InitMusicPlay()
+		{
 			MainMenuMusic.Stop();
 			MainMenuMusic.Play();
+			logger?.LogMessage("Playing mod music manually.");
 		}
 
 		internal static ManualLogSource? logger;
