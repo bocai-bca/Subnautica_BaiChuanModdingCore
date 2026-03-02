@@ -18,6 +18,7 @@ namespace BaiChuanModdingCore
 			harmony.Patch(typeof(CraftData).GetMethod("GetPrefabForTechTypeAsync", BindingFlags.Public | BindingFlags.Static, null, new []{typeof(TechType), typeof(bool)}, null), prefix,new HarmonyMethod(typeof(Patch_CraftData).GetMethod("PostfixAsync", BindingFlags.Static | BindingFlags.Public)));
 			harmony.Patch(typeof(MainMenuMusic).GetMethod("Play", BindingFlags.Public | BindingFlags.Static), null, new HarmonyMethod(typeof(MainMenuMusicModded).GetMethod("PlayPostfix", BindingFlags.Static | BindingFlags.Public)));
 			harmony.Patch(typeof(MainMenuMusic).GetMethod("Stop", BindingFlags.Public | BindingFlags.Static), null, new HarmonyMethod(typeof(MainMenuMusicModded).GetMethod("StopPostfix", BindingFlags.Static | BindingFlags.Public)));
+			harmony.PatchAll();
 			logger = Logger;
 			if (!MainMenuMusicModded.LoadModMusic())
 			{
