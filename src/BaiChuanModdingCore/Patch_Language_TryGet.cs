@@ -15,7 +15,9 @@ namespace BaiChuanModdingCore
 			{"SmallStorage", "白色潜影盒"},
 			{"Tooltip_SmallStorage", "拥有8x10的储物空间,似乎不是此方世界的产物"},
 			{"LuggageBag", "灰色潜影盒"},
-			{"Tooltip_LuggageBag", "拥有8x10的储物空间,似乎不是此方世界的产物"}
+			{"Tooltip_LuggageBag", "拥有8x10的储物空间,似乎不是此方世界的产物"},
+			{"Tooltip_Fabricator", "基础的工作台，将收集到的最基础的材料转化为有用的物品\n<color=#90EE90>批量制造绑定按键：鼠标滚轮</color>\n<color=#90EE90>拆解模式绑定按键：空格</color>"},
+			{"Tooltip_Seaglide", "通过螺旋桨转动来产生水下推动力\n<color=#90EE90>开关灯光绑定按键：双击右键</color>\n<color=#90EE90>开关灯光绑定按键：F</color>\n<color=#90EE90>超频冲刺绑定按键：Shift</color>"}
 		};
 
 		public static void Prefix(string key, out string __state)
