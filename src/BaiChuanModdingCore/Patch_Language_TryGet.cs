@@ -22,13 +22,14 @@ namespace BaiChuanModdingCore
 			{"Tooltip_Locker", "独立的8x10储藏室\n<color=#FF3030FF>重载时会导致空间缩水，建议使用其他柜子</color>"}
 		};
 
-		public static void Prefix(string key, out string __state)
+		public static void Prefix(string key, out string? __state)
 		{
 			__state = key;
 		}
 
-		public static void Postfix(ref string result, string __state)
+		public static void Postfix(ref string result, string? __state)
 		{
+			if (__state == null) return;
 			if (OverrideTranslations.TryGetValue(__state, out string? translationOverrided))
 			{
 				result = translationOverrided;
