@@ -46,6 +46,7 @@
         <Reference Include="$(SubnauticaData)\Managed\Assembly-CSharp-firstpass.dll"/>
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.CoreModule.dll"/>
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.dll"/>
+        <Reference Include="$(SubnauticaData)\Managed\UnityEngine.UI.dll"/>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BaiChuanModdingCore.cs" />
@@ -62,7 +63,7 @@
         <Compile Include="Patchers\SeaEmperorJuvenile.cs" />
         <Compile Include="PatcherManager.cs" />
         <Compile Include="Patch_CraftData.cs" />
-        <Compile Include="Patch_OptionsPanel_OnEnable.cs" />
+        <Compile Include="Patch_OptionsPanel_AddTabs.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
