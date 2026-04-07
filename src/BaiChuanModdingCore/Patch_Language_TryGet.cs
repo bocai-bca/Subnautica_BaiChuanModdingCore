@@ -29,12 +29,13 @@ namespace BaiChuanModdingCore
 			__state = key;
 		}
 
-		public static void Postfix(ref string result, string? __state)
+		public static void Postfix(ref string result, string? __state, ref bool __result)
 		{
 			if (__state == null) return;
 			if (OverrideTranslations.TryGetValue(__state, out string? translationOverrided))
 			{
 				result = translationOverrided;
+				__result = true;
 			}
 		}
 	}
