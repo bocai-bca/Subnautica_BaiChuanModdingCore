@@ -29,6 +29,7 @@ namespace BaiChuanModdingCore
 			new Patchers.SeaDragon(),
 			new Patchers.SeaEmperorJuvenile(),
 			new Patchers.Reefback(),
+			new Patchers.Warper()
 		};
 	}
 }

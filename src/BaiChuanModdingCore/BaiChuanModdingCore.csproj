@@ -50,6 +50,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BaiChuanModdingCore.cs" />
+        <Compile Include="Patchers\Warper.cs" />
         <Compile Include="Patch_Language_TryGet.cs" />
         <Compile Include="MainMenuMusicModded.cs" />
         <Compile Include="PatcherBase.cs" />
