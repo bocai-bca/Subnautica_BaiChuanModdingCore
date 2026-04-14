@@ -23,7 +23,7 @@ namespace BaiChuanModdingCore
 			{"Tooltip_Scanner", "扫描仪可用于获取科技蓝图或生物体数据\n<color=#FFA500>建议扫描一切可扫描物品</color>\n<color=#FFA500>对一切可获得物品都建议获取一份</color>"},
 			{"Tooltip_Builder", "可用于建设基地和基地设施的工具\n<color=#FFA500>单人床已默认解锁</color>\n<color=#FFA500>FCS套件需要从FCS购买获得</color>"},
 			{"Tooltip_Skyray", "一只体型中等的燕子鱼，没有人造物质的痕迹。与4546B其他地区的同类们不同，火山口附近的燕子鱼们逐渐意识到，未知铁疙瘩附近的区域，对它们而言是无法飞跃的天堑"},
-			{"RepulsionCannon", "斥力炮"}
+			{"RepulsionCannon", "斥力炮"},
 		};
 
 		public static void Prefix(string key, out string? __state)

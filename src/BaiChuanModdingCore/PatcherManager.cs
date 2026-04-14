@@ -23,13 +23,6 @@ namespace BaiChuanModdingCore
 		{
 			new PrecursorIonBattery(),
 			new PrecursorIonPowerCell(),
-			new Patchers.ReaperLeviathan(),
-			new Patchers.GhostLeviathan(),
-			new GhostLeviathanJuvenile(),
-			new Patchers.SeaDragon(),
-			new Patchers.SeaEmperorJuvenile(),
-			new Patchers.Reefback(),
-			new Patchers.Warper()
 		};
 	}
 }
