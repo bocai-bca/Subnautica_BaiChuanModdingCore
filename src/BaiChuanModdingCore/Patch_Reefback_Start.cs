@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace BaiChuanModdingCore
 {
-	[HarmonyPatch(typeof(Reefback), "Awake")]
-	public class Patch_Reefback_Awake
+	[HarmonyPatch(typeof(Reefback), "Start")]
+	public class Patch_Reefback_Start
 	{
 		public static void Postfix(Reefback __instance)
 		{

@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace BaiChuanModdingCore
 {
-	[HarmonyPatch(typeof(SeaDragon), "Awake")]
-	public class Patch_SeaDragon_Awake
+	[HarmonyPatch(typeof(SeaDragon), "Start")]
+	public class Patch_SeaDragon_Start
 	{
 		public static void Postfix(SeaDragon __instance)
 		{

@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace BaiChuanModdingCore
 {
-	[HarmonyPatch(typeof(Warper), "Awake")]
-	public class Patch_Warper_Awake
+	[HarmonyPatch(typeof(Warper), "Start")]
+	public class Patch_Warper_Start
 	{
 		public static void Postfix(Warper __instance)
 		{

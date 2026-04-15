@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace BaiChuanModdingCore
 {
-	[HarmonyPatch(typeof(SeaEmperorJuvenile), "Awake")]
-	public class Patch_SeaEmperorJuvenile_Awake
+	[HarmonyPatch(typeof(ReaperLeviathan), "Start")]
+	public class Patch_ReaperLeviathan_Start
 	{
-		public static void Postfix(SeaEmperorJuvenile __instance)
+		public static void Postfix(ReaperLeviathan __instance)
 		{
 			LiveMixin liveMixin = __instance.GetComponent<LiveMixin>();
 			if (liveMixin == null)

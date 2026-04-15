@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace BaiChuanModdingCore
 {
-	[HarmonyPatch(typeof(GhostLeviathan), "Awake")]
-	public class Patch_GhostLeviathan_Awake
+	[HarmonyPatch(typeof(GhostLeviathan), "Start")]
+	public class Patch_GhostLeviathan_Start
 	{
 		public static void Postfix(GhostLeviathan __instance)
 		{

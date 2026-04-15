@@ -50,8 +50,8 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BaiChuanModdingCore.cs" />
-        <Compile Include="Patch_GhostLeviathan_Awake.cs" />
-        <Compile Include="Patch_ReaperLeviathan_Awake.cs" />
+        <Compile Include="Patch_GhostLeviathan_Start.cs" />
+        <Compile Include="Patch_ReaperLeviathan_Start.cs" />
         <Compile Include="Patch_Language_TryGet.cs" />
         <Compile Include="MainMenuMusicModded.cs" />
         <Compile Include="PatcherBase.cs" />
@@ -60,10 +60,10 @@
         <Compile Include="PatcherManager.cs" />
         <Compile Include="Patch_CraftData.cs" />
         <Compile Include="Patch_OptionsPanel_AddTabs.cs" />
-        <Compile Include="Patch_Reefback_Awake.cs" />
-        <Compile Include="Patch_SeaDragon_Awake.cs" />
-        <Compile Include="Patch_SeaEmperorJuvenile_Awake.cs" />
-        <Compile Include="Patch_Warper_Awake.cs" />
+        <Compile Include="Patch_Reefback_Start.cs" />
+        <Compile Include="Patch_SeaDragon_Start.cs" />
+        <Compile Include="Patch_SeaEmperorJuvenile_Start.cs" />
+        <Compile Include="Patch_Warper_Start.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
