@@ -51,6 +51,7 @@
     <ItemGroup>
         <Compile Include="BaiChuanModdingCore.cs" />
         <Compile Include="CreaturePatches.cs" />
+        <Compile Include="Patch_Inventory_LoseItems.cs" />
         <Compile Include="Patch_Language_TryGet.cs" />
         <Compile Include="MainMenuMusicModded.cs" />
         <Compile Include="PatcherBase.cs" />

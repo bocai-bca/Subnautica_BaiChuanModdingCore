@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using BepInEx;
+using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 
@@ -9,7 +10,7 @@ namespace BaiChuanModdingCore
 	[BepInPlugin("net.bcasoft.baichuanmoddingcore", "BaiChuanModdingCore", "0.1.3.0")]
 	public class BaiChuanModdingCore : BaseUnityPlugin
 	{
-		internal Harmony harmony = new Harmony("net.bcasoft.baichuanmoddingcore");
+		internal Harmony harmony = new("net.bcasoft.baichuanmoddingcore");
 		
 		private void Awake()
 		{
@@ -17,7 +18,7 @@ namespace BaiChuanModdingCore
 			logger = Logger;
 			try
 			{
-				HarmonyMethod prefix = new HarmonyMethod(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));
+				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));
 				harmony.Patch(typeof(CraftData).GetMethod("GetPrefabForTechType", BindingFlags.Public | BindingFlags.Static), prefix,new HarmonyMethod(typeof(Patch_CraftData).GetMethod("Postfix", BindingFlags.Static | BindingFlags.Public)));
 				harmony.Patch(typeof(CraftData).GetMethod("GetPrefabForTechTypeAsync", BindingFlags.Public | BindingFlags.Static, null, [typeof(TechType), typeof(bool)], null), prefix,new HarmonyMethod(typeof(Patch_CraftData).GetMethod("PostfixAsync", BindingFlags.Static | BindingFlags.Public)));
 				harmony.Patch(typeof(MainMenuMusic).GetMethod("Play", BindingFlags.Public | BindingFlags.Static), null, new HarmonyMethod(typeof(MainMenuMusicModded).GetMethod("PlayPostfix", BindingFlags.Static | BindingFlags.Public)));
@@ -34,6 +35,7 @@ namespace BaiChuanModdingCore
 			{
 				logger?.LogError("Failed to load mod music.");
 			}
+			dropAllOnDeath = Config.Bind("Switches", "DropAllOnDeath", false, "Control will the patch which is \"drop all items on player death\" work.");
 			logger?.LogMessage("Loaded.");
 		}
 
@@ -52,5 +54,7 @@ namespace BaiChuanModdingCore
 		internal static ManualLogSource? logger;
 
 		public static BaiChuanModdingCore? Instance;
+
+		internal static ConfigEntry<bool>? dropAllOnDeath;
 	}
 }

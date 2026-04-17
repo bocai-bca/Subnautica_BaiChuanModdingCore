@@ -17,12 +17,6 @@ namespace BaiChuanModdingCore
 		public static Dictionary<Type, string[]> StartTasks = new()
 		{
 			{ typeof(Creature), [string.Empty, nameof(Creature_Start_Postfix)] },
-			//{ typeof(GhostLeviathan), [string.Empty, nameof(GhostLeviathan_Start_Postfix)] },
-			//{ typeof(Reefback), [string.Empty, nameof(Reefback_Start_Postfix)] },
-			//{ typeof(SeaDragon), [string.Empty, nameof(SeaDragon_Start_Postfix)] },
-			//{ typeof(Warper), [string.Empty, nameof(Warper_Start_Postfix)] },
-			//{ typeof(ReaperLeviathan), [string.Empty, nameof(ReaperLeviathan_Start_Postfix)] },
-			//{ typeof(SeaEmperorJuvenile), [string.Empty, nameof(SeaEmperorJuvenile_Start_Postfix)] },
 		};
 		
 		/// <summary>
