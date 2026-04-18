@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
+using System.Linq;
+using HarmonyLib;
 using UnityEngine;
 
 namespace BaiChuanModdingCore;
@@ -32,9 +34,10 @@ public class Patch_Inventory_LoseItems
 		if (player.currentSub != null || player.isPiloting) return;
 		// 模拟丢物品
 		BaiChuanModdingCore.logger?.LogMessage("Simulating death drop.");
-		foreach (InventoryItem item in Inventory.main.container)
+		List<Pickupable> pickupables = [];
+		pickupables.AddRange(Inventory.main.container.Select(item => item.item));
+		foreach (Pickupable pickupable in pickupables)
 		{
-			Pickupable pickupable = item.item;
 			Transform transform = MainCameraControl.main.transform;
 			Vector3 dropPosition = Inventory.RayCast(transform.position, transform.forward, 10f, 0.75f, 1.5f);
 			pickupable.Drop(dropPosition);
