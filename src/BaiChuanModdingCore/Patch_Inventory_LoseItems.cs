@@ -31,7 +31,7 @@ public class Patch_Inventory_LoseItems
 		if (BaiChuanModdingCore.dropAllOnDeath == null) return;
 		if (!BaiChuanModdingCore.dropAllOnDeath.Value) return;
 		Player player = Player.main;
-		bool shouldReturn = false;
+		/*bool shouldReturn = false;
 		if (player.currentSub != null && player.currentWaterPark == null)
 		{
 			shouldReturn = true;
@@ -45,7 +45,7 @@ public class Patch_Inventory_LoseItems
 		if (shouldReturn)
 		{
 			return;
-		}
+		}*/
 		// 模拟丢物品
 		BaiChuanModdingCore.logger?.LogMessage("Simulating death drop.");
 		List<Pickupable> pickupables = [];
