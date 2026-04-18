@@ -31,7 +31,21 @@ public class Patch_Inventory_LoseItems
 		if (BaiChuanModdingCore.dropAllOnDeath == null) return;
 		if (!BaiChuanModdingCore.dropAllOnDeath.Value) return;
 		Player player = Player.main;
-		if (player.currentSub != null || player.isPiloting) return;
+		bool shouldReturn = false;
+		if (player.currentSub != null && player.currentWaterPark == null)
+		{
+			shouldReturn = true;
+			BaiChuanModdingCore.logger?.LogWarning("DropAllOnDeath cancelled, Player.currentSub != null && Player.currentWaterPark == null.");
+		}
+		if (player.isPiloting)
+		{
+			shouldReturn = true;
+			BaiChuanModdingCore.logger?.LogWarning("DropAllOnDeath cancelled, Player.isPiloting == true.");
+		}
+		if (shouldReturn)
+		{
+			return;
+		}
 		// 模拟丢物品
 		BaiChuanModdingCore.logger?.LogMessage("Simulating death drop.");
 		List<Pickupable> pickupables = [];
