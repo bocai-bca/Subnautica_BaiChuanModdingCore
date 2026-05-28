@@ -29,14 +29,15 @@ namespace BaiChuanModdingCore
 			PatcherBase? patcher = PatcherManager.GetPatcherForTechType(__state);
 			if (patcher != null)
 			{
-				do
+				__result = CoroutineTaskWrapper.Wrap(__result, originalGameObject =>
 				{
-					if (!patcher.DoPatching(__result.GetResult()))
-					{
+					bool success = patcher.DoPatching(originalGameObject);
+					if (!success)
 						BaiChuanModdingCore.logger?.LogError("Failed to run patcher ASYNC on TechType " + __state);
-					}
-					BaiChuanModdingCore.logger?.LogMessage("Successed to run patcher on TechType " + __state);
-				} while (__result.MoveNext());
+					else
+						BaiChuanModdingCore.logger?.LogMessage("Successed to run patcher on TechType " + __state);
+					return originalGameObject;
+				});
 			}
 			//BaiChuanModdingCore.logger.LogInfo("No patcher was registed for TechType " + __state);
 		}
