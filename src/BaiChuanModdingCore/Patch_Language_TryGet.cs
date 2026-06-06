@@ -8,7 +8,8 @@ namespace BaiChuanModdingCore
 	{
 		public static Dictionary<string, string> OverrideTranslations = new()
 		{
-			{"Tooltip_Battery", "便携能源\n<color=#FFA500>制作需要电池或含有电池的工具需要保持原版电池且满电，游戏电量显示为去小数点向上取整，如100%电池无法制作建议进行充电或制作一个新的</color>"},
+			{"Tooltip_Battery", "便携能源\n<color=#FFA500>合成配方中若需要电池或含有电池的工具则需要保持满电且使用此电池。\n<color=#FFA500>游戏电量显示为去小数点向上取整，若100%电池无法制作建议进行充电或制作一个新的</color>"},
+			{"Tooltip_PowerCell", "大容量便携能量源\n<color=#FFA500>合成配方中若需要电池或含有电池的工具则需要保持满电且使用此电池。\n<color=#FFA500>游戏电量显示为去小数点向上取整，若100%电池无法制作建议进行充电或制作一个新的</color>"},
 			{"Tooltip_SeamothTorpedoModule", "一个标准的水下发射装备，可以用于发射鱼雷\n<color=#FFA500>该模块只能装备在一到四号槽位</color>"},
 			{"Tooltip_VehicleStorageModule", "额外增加的4x4储存空间，适用于海蛾号和海虾号动力机甲\n<color=#FFA500>该模块只能装备在一到四号槽位</color>"},
 			{"SmallStorage", "白色潜影盒"},
@@ -23,6 +24,8 @@ namespace BaiChuanModdingCore
 			{"Tooltip_Builder", "可用于建设基地和基地设施的工具\n<color=#FFA500>单人床已默认解锁</color>\n<color=#FFA500>FCS套件需要从FCS购买获得</color>"},
 			{"Tooltip_Skyray", "一只体型中等的燕子鱼，没有人造物质的痕迹。与4546B其他地区的同类们不同，火山口附近的燕子鱼们逐渐意识到，未知铁疙瘩附近的区域，对它们而言是无法飞跃的天堑"},
 			{"RepulsionCannon", "斥力炮"},
+			{"Tooltip_BaseWindow", "基地上的舷窗，安装在了墙面上\n<color=#FF3030FF>安装在管道的圆形侧面会导致无法建造与拆解</color>"},
+			{"Tooltip_BaseMoonpool", "载具停泊处，能耗很高\n<color=#FFA500>月池在适配已有基地时无法转向，如有需求建议优先造月池\n<color=#FFA500>月池在预览建造状态不会有管道链接，正常建造即可</color>"},
 		};
 
 		public static void Prefix(string key, out string? __state)
