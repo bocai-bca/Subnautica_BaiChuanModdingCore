@@ -60,6 +60,7 @@
         <Compile Include="Patchers\PrecursorIonPowerCell.cs" />
         <Compile Include="PatcherManager.cs" />
         <Compile Include="Patch_CraftData.cs" />
+        <Compile Include="NuclearReactorModify.cs" />
         <Compile Include="Patch_OptionsPanel_AddTabs.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
