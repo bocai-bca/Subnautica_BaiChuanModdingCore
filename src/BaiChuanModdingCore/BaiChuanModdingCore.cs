@@ -37,6 +37,7 @@ namespace BaiChuanModdingCore
 			}
 			dropAllOnDeath = Config.Bind("Switches", "DropAllOnDeath", false, "Control will the patch which is \"drop all items on player death\" work.");
 			logger?.LogMessage("Loaded.");
+			NuclearReactorModify.DoModify();
 		}
 
 		private void Start()
