@@ -35,6 +35,10 @@ namespace BaiChuanModdingCore
 			{
 				logger?.LogError("Failed to load mod music.");
 			}
+			if (!FrameDistributedTask_PlayerIntoVoid.LoadSound())
+			{
+				logger?.LogError("Failed to load SoundOnPlayerIntoVoid.");
+			}
 			dropAllOnDeath = Config.Bind("Switches", "DropAllOnDeath", false, "Control will the patch which is \"drop all items on player death\" work.");
 			logger?.LogMessage("Loaded.");
 			NuclearReactorModify.DoModify();
@@ -43,6 +47,11 @@ namespace BaiChuanModdingCore
 		private void Start()
 		{
 			Invoke(nameof(InitMusicPlay), 1f);
+		}
+
+		private void Update()
+		{
+			FrameDistributedTaskManager.Update();
 		}
 
 		public void InitMusicPlay()
