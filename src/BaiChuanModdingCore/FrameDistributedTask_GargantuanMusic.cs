@@ -36,44 +36,33 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 	
 	public bool Run()
 	{
-		BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: Start");
 		switch (state)
 		{
 			case State.NOT_STARTED:
-				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case NOT_STARTED");
 				if (FindGargantuan() && gargantuanGameObject != null && gargantuanGameObject.activeSelf)
 				{
 					PlaySoundEntering();
 					state = State.ENTERING;
 				}
-				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case NOT_STARTED break");
 				break;
 			case State.ENTERING:
-				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case ENTERING");
-				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case ENTERING break");
 				break;
 			case State.LOOPING:
-				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case LOOPING");
 				if (gargantuanGameObject != null && gargantuanGameObject.activeSelf)
 				{
-					BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case LOOPING break");
 					break;
 				}
 				PlaySoundExiting();
 				state = State.EXITING;
-				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case LOOPING break");
 				break;
 			case State.EXITING:
-				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case EXITING");
 				channelExiting.isPlaying(out bool isplaying);
 				if (!isplaying) state = State.NOT_STARTED;
-				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case EXITING break");
 				break;
 			default:
 				BaiChuanModdingCore.logger?.LogError("FrameDistributedTask_GargantuanMusic state out of range.");
 				break;
 		}
-		BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: End");
 		return true;
 	}
 
@@ -129,15 +118,15 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 		RESULT result = bus.getChannelGroup(out ChannelGroup channelGroup);
 		if (result != RESULT.OK) return;
 		RuntimeManager.LowlevelSystem.playSound(soundLooping, channelGroup, false, out channelLooping);
+		BaiChuanModdingCore.logger?.LogInfo("channelLooping.handle is " + channelLooping.handle);
 	}
 
 	public static void PlaySoundExiting()
 	{
 		try
 		{
-			BaiChuanModdingCore.logger?.LogInfo("Trying to stop sound channel which is GargantuanMusic.channelLooping.");
-			RESULT stopResult = channelLooping.stop();
-			BaiChuanModdingCore.logger?.LogInfo("Stop result is " +  stopResult);
+			BaiChuanModdingCore.logger?.LogInfo("Stoping channelLooping and its handle is " + channelLooping.handle);
+			channelLooping.stop();
 		}
 		catch (Exception e)
 		{
