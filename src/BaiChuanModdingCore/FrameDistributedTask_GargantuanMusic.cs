@@ -36,30 +36,44 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 	
 	public bool Run()
 	{
+		BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: Start");
 		switch (state)
 		{
 			case State.NOT_STARTED:
+				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case NOT_STARTED");
 				if (FindGargantuan() && gargantuanGameObject is { activeSelf: true })
 				{
 					PlaySoundEntering();
 					state = State.ENTERING;
 				}
+				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case NOT_STARTED break");
 				break;
 			case State.ENTERING:
+				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case ENTERING");
+				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case ENTERING break");
 				break;
 			case State.LOOPING:
-				if (gargantuanGameObject is not null && gargantuanGameObject.activeSelf) break;
+				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case LOOPING");
+				if (gargantuanGameObject is not null && gargantuanGameObject.activeSelf)
+				{
+					BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case LOOPING break");
+					break;
+				}
 				PlaySoundExiting();
 				state = State.EXITING;
+				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case LOOPING break");
 				break;
 			case State.EXITING:
+				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case EXITING");
 				channelExiting.isPlaying(out bool isplaying);
 				if (!isplaying) state = State.NOT_STARTED;
+				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case EXITING break");
 				break;
 			default:
 				BaiChuanModdingCore.logger?.LogError("FrameDistributedTask_GargantuanMusic state out of range.");
 				break;
 		}
+		BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: End");
 		return true;
 	}
 
