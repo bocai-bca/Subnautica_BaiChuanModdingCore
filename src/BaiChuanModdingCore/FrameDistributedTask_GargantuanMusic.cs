@@ -41,7 +41,7 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 		{
 			case State.NOT_STARTED:
 				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case NOT_STARTED");
-				if (FindGargantuan() && gargantuanGameObject is { activeSelf: true })
+				if (FindGargantuan() && gargantuanGameObject != null && gargantuanGameObject.activeSelf)
 				{
 					PlaySoundEntering();
 					state = State.ENTERING;
@@ -83,7 +83,7 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 		Scene sceneMain = SceneManager.GetSceneByName("Main");
 		if (!sceneMain.IsValid() || !sceneMain.isLoaded)
 		{
-			BaiChuanModdingCore.logger?.LogError("Could not get scene Main.");
+			//BaiChuanModdingCore.logger?.LogError("Could not get scene Main.");
 			return false;
 		}
 		foreach (GameObject gameObject in sceneMain.GetRootGameObjects())
