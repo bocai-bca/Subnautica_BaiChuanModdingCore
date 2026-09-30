@@ -48,11 +48,9 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 			case State.ENTERING:
 				break;
 			case State.LOOPING:
-				if (gargantuanGameObject is null || !gargantuanGameObject.activeSelf)
-				{
-					PlaySoundExiting();
-					state = State.EXITING;
-				}
+				if (gargantuanGameObject is not null && gargantuanGameObject.activeSelf) break;
+				PlaySoundExiting();
+				state = State.EXITING;
 				break;
 			case State.EXITING:
 				channelExiting.isPlaying(out bool isplaying);
