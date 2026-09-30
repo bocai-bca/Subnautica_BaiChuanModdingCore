@@ -79,7 +79,7 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 			gargantuanGameObject = transform.gameObject;
 			return true;
 		}
-		BaiChuanModdingCore.logger?.LogError("Could not get GameObject of GargantuanVoid.");
+		//BaiChuanModdingCore.logger?.LogError("Could not get GameObject of GargantuanVoid.");
 		return false;
 	}
 	
