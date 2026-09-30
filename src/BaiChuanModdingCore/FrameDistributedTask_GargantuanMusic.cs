@@ -135,7 +135,9 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 	{
 		try
 		{
-			channelLooping.stop();
+			BaiChuanModdingCore.logger?.LogInfo("Trying to stop sound channel which is GargantuanMusic.channelLooping.");
+			RESULT stopResult = channelLooping.stop();
+			BaiChuanModdingCore.logger?.LogInfo("Stop result is " +  stopResult);
 		}
 		catch (Exception e)
 		{
