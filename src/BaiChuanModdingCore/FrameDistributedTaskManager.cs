@@ -8,15 +8,16 @@ namespace BaiChuanModdingCore;
 public static class FrameDistributedTaskManager
 {
 	/// <summary>
-	/// 指针回滚冷却，需要为一个负数。即任务指针达到末尾时回到的位置，设为负数时能够使得指针在负数时不执行任何任务，来迫使长时间内的性能负担减轻。
+	/// 指针回滚冷却，需要为一个负数。即任务指针达到末尾时回到的位置，设为负数时能够使得指针在负数时不执行任何任务，来迫使长时间内的性能负担减轻。单位为帧。
 	/// </summary>
-	public const int POINT_ROLLING_BACK_COOLDOWN = -50; 
+	public const int POINT_ROLLING_BACK_COOLDOWN = -50;
 	
 	/// <summary>
 	/// 任务表
 	/// </summary>
 	public static readonly List<IFrameDistributedTask> tasks = [
 		new FrameDistributedTask_PlayerIntoVoid(),
+		new FrameDistributedTask_GargantuanMusic(),
 	];
 
 	/// <summary>

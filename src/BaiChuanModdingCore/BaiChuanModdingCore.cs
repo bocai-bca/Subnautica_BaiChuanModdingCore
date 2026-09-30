@@ -39,6 +39,10 @@ namespace BaiChuanModdingCore
 			{
 				logger?.LogError("Failed to load SoundOnPlayerIntoVoid.");
 			}
+			if (!FrameDistributedTask_GargantuanMusic.LoadSound())
+			{
+				logger?.LogError("Failed to load GargantuanMusic.");
+			}
 			dropAllOnDeath = Config.Bind("Switches", "DropAllOnDeath", false, "Control will the patch which is \"drop all items on player death\" work.");
 			logger?.LogMessage("Loaded.");
 			NuclearReactorModify.DoModify();

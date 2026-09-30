@@ -53,6 +53,7 @@
         <Compile Include="CoroutineTaskWrapper.cs" />
         <Compile Include="CreaturePatches.cs" />
         <Compile Include="FrameDistributedTaskManager.cs" />
+        <Compile Include="FrameDistributedTask_GargantuanMusic.cs" />
         <Compile Include="FrameDistributedTask_PlayerIntoVoid.cs" />
         <Compile Include="IFrameDistributedTask.cs" />
         <Compile Include="Patch_Inventory_LoseItems.cs" />
