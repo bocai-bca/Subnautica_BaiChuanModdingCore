@@ -133,9 +133,13 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 
 	public static void PlaySoundExiting()
 	{
-		if (channelLooping.isPlaying(out bool isplaying) == RESULT.OK)
+		try
 		{
-			if (isplaying) channelLooping.stop();
+			channelLooping.stop();
+		}
+		catch (Exception e)
+		{
+			BaiChuanModdingCore.logger?.LogError("Exception on trying to stop sound channel which is GargantuanMusic.channelLooping. E: " + e.Message);
 		}
 		state = State.EXITING;
 		Bus bus = RuntimeManager.GetBus("bus:/master/nofilter/music");
