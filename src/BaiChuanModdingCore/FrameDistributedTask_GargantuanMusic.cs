@@ -36,30 +36,10 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 	
 	public bool Run()
 	{
-		if (gargantuanGameObject == null)
-		{
-			Scene sceneMain = SceneManager.GetSceneByName("Main");
-			if (!sceneMain.IsValid() || !sceneMain.isLoaded)
-			{
-				BaiChuanModdingCore.logger?.LogError("Could not get scene Main.");
-				return true;
-			}
-			foreach (GameObject gameObject in sceneMain.GetRootGameObjects())
-			{
-				if (gameObject.name != "Landscape") continue;
-				gargantuanGameObject = gameObject.transform.Find("Global Root/GargantuanVoid(Clone)").gameObject;
-				break;
-			}
-			if (gargantuanGameObject == null)
-			{
-				BaiChuanModdingCore.logger?.LogError("Could not get GameObject of GargantuanVoid.");
-				return true;
-			}
-		}
 		switch (state)
 		{
 			case State.NOT_STARTED:
-				if (gargantuanGameObject != null && gargantuanGameObject.activeSelf)
+				if (FindGargantuan() && gargantuanGameObject is { activeSelf: true })
 				{
 					PlaySoundEntering();
 					state = State.ENTERING;
@@ -68,14 +48,15 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 			case State.ENTERING:
 				break;
 			case State.LOOPING:
-				if (gargantuanGameObject == null || !gargantuanGameObject.activeSelf)
+				if (gargantuanGameObject is null || !gargantuanGameObject.activeSelf)
 				{
 					PlaySoundExiting();
 					state = State.EXITING;
 				}
 				break;
 			case State.EXITING:
-				if (channelExiting.isPlaying(out bool isplaying) == RESULT.OK && !isplaying) state = State.NOT_STARTED;
+				channelExiting.isPlaying(out bool isplaying);
+				if (!isplaying) state = State.NOT_STARTED;
 				break;
 			default:
 				BaiChuanModdingCore.logger?.LogError("FrameDistributedTask_GargantuanMusic state out of range.");
@@ -84,11 +65,35 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 		return true;
 	}
 
+	public static bool FindGargantuan()
+	{
+		if (gargantuanGameObject is not null) return true;
+		Scene sceneMain = SceneManager.GetSceneByName("Main");
+		if (!sceneMain.IsValid() || !sceneMain.isLoaded)
+		{
+			BaiChuanModdingCore.logger?.LogError("Could not get scene Main.");
+			return false;
+		}
+		foreach (GameObject gameObject in sceneMain.GetRootGameObjects())
+		{
+			if (gameObject.name != "Landscape") continue;
+			if (gameObject.transform.Find("Global Root/GargantuanVoid(Clone)") is not { } transform) continue;
+			gargantuanGameObject = transform.gameObject;
+			return true;
+		}
+		BaiChuanModdingCore.logger?.LogError("Could not get GameObject of GargantuanVoid.");
+		return false;
+	}
+	
 	public static void PlaySoundEntering()
 	{
-		if (FrameDistributedTask_PlayerIntoVoid.channel.isPlaying(out bool isplaying) == RESULT.OK)
+		try
 		{
-			if (isplaying) FrameDistributedTask_PlayerIntoVoid.channel.stop();
+			FrameDistributedTask_PlayerIntoVoid.channel.stop();
+		}
+		catch (Exception e)
+		{
+			BaiChuanModdingCore.logger?.LogError("Exception on trying to stop sound channel of PlayerIntoVoid. E: " + e.Message);
 		}
 		Bus bus = RuntimeManager.GetBus("bus:/master/nofilter/music");
 		RESULT result = bus.getChannelGroup(out ChannelGroup channelGroup);
@@ -99,9 +104,13 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 
 	public static void PlaySoundLooping()
 	{
-		if (channelEntering.isPlaying(out bool isplaying) == RESULT.OK)
+		try
 		{
-			if (isplaying) channelEntering.stop();
+			channelEntering.stop();
+		}
+		catch (Exception e)
+		{
+			BaiChuanModdingCore.logger?.LogError("Exception on trying to stop sound channel which is GargantuanMusic.channelEntering. E: " + e.Message);
 		}
 		state = State.LOOPING;
 		Bus bus = RuntimeManager.GetBus("bus:/master/nofilter/music");
