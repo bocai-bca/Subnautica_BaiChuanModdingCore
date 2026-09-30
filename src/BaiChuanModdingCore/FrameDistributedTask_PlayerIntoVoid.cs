@@ -13,6 +13,7 @@ public class FrameDistributedTask_PlayerIntoVoid: IFrameDistributedTask
 	
 	public bool Run()
 	{
+		if (Player.main == null) return true;
 		string biomeThisTick = Player.main.GetBiomeString();
 		if (biomeThisTick == "void" && biomeLastTick != "void")
 		{

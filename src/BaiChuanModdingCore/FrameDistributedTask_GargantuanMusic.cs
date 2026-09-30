@@ -54,7 +54,7 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 				break;
 			case State.LOOPING:
 				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case LOOPING");
-				if (gargantuanGameObject is not null && gargantuanGameObject.activeSelf)
+				if (gargantuanGameObject != null && gargantuanGameObject.activeSelf)
 				{
 					BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic.Run: case LOOPING break");
 					break;
