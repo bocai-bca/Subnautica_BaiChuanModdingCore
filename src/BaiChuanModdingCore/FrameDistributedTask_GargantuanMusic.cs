@@ -41,23 +41,42 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 			case State.NOT_STARTED:
 				if (FindGargantuan() && gargantuanGameObject != null && gargantuanGameObject.activeSelf)
 				{
-					PlaySoundEntering();
+					BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic state to ENTERING");
 					state = State.ENTERING;
+					needGoingToLooping = false;
+					PlaySoundEntering();
 				}
 				break;
 			case State.ENTERING:
+				if (needGoingToLooping)
+				{
+					BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic state to LOOPING");
+					state = State.LOOPING;
+					PlaySoundLooping();
+				}
 				break;
 			case State.LOOPING:
 				if (gargantuanGameObject != null && gargantuanGameObject.activeSelf)
 				{
 					break;
 				}
-				PlaySoundExiting();
+				BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic state to EXITING");
 				state = State.EXITING;
+				PlaySoundExiting();
 				break;
 			case State.EXITING:
+				if (FindGargantuan() && gargantuanGameObject != null && gargantuanGameObject.activeSelf)
+				{
+					BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic state to LOOPING");
+					state = State.LOOPING;
+					PlaySoundLooping();
+				}
 				channelExiting.isPlaying(out bool isplaying);
-				if (!isplaying) state = State.NOT_STARTED;
+				if (!isplaying)
+				{
+					BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic state to NOT_STARTED");
+					state = State.NOT_STARTED;
+				}
 				break;
 			default:
 				BaiChuanModdingCore.logger?.LogError("FrameDistributedTask_GargantuanMusic state out of range.");
@@ -107,13 +126,14 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 	{
 		try
 		{
+			channelLooping.stop();
 			channelEntering.stop();
+			channelExiting.stop();
 		}
 		catch (Exception e)
 		{
 			BaiChuanModdingCore.logger?.LogError("Exception on trying to stop sound channel which is GargantuanMusic.channelEntering. E: " + e.Message);
 		}
-		state = State.LOOPING;
 		Bus bus = RuntimeManager.GetBus("bus:/master/nofilter/music");
 		RESULT result = bus.getChannelGroup(out ChannelGroup channelGroup);
 		if (result != RESULT.OK) return;
@@ -125,7 +145,6 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 	{
 		try
 		{
-			BaiChuanModdingCore.logger?.LogInfo("Stoping channelLooping and its handle is " + channelLooping.handle);
 			channelLooping.stop();
 		}
 		catch (Exception e)
@@ -200,6 +219,8 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 	
 	public static State state = State.NOT_STARTED;
 
+	public static bool needGoingToLooping = false;
+
 	public static GameObject? gargantuanGameObject;
 	
 	// 本方法由Deepseek LLM提供
@@ -210,7 +231,7 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 		{
 			// 声音自然播放结束
 			// 注意：可能不在主线程，只设标志位，回主线程再处理 Unity 逻辑
-			PlaySoundLooping();
+			needGoingToLooping = true;
 		}
 		return RESULT.OK;
 	}
