@@ -70,6 +70,7 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 					BaiChuanModdingCore.logger?.LogInfo("GargantuanMusic state to LOOPING");
 					state = State.LOOPING;
 					PlaySoundLooping();
+					break;
 				}
 				channelExiting.isPlaying(out bool isplaying);
 				if (!isplaying)
@@ -87,7 +88,7 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 
 	public static bool FindGargantuan()
 	{
-		if (gargantuanGameObject is not null) return true;
+		if (gargantuanGameObject != null) return true;
 		Scene sceneMain = SceneManager.GetSceneByName("Main");
 		if (!sceneMain.IsValid() || !sceneMain.isLoaded)
 		{
