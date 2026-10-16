@@ -15,11 +15,8 @@ namespace BaiChuanModdingCore
 			PatcherBase? patcher = PatcherManager.GetPatcherForTechType(__state);
 			if (patcher != null)
 			{
-				if (!patcher.DoPatching(__result))
-				{
-					BaiChuanModdingCore.logger?.LogError("Failed to run patcher on TechType " + __state);
-				}
-				BaiChuanModdingCore.logger?.LogMessage("Successed to run patcher on TechType " + __state);
+				if (!patcher.DoPatching(__result)) BaiChuanModdingCore.logger?.LogError("Failed to run patcher on TechType " + __state);
+				else BaiChuanModdingCore.logger?.LogMessage("Succeeded to run patcher on TechType " + __state);
 			}
 			//BaiChuanModdingCore.logger.LogInfo("No patcher was registed for TechType " + __state);
 		}
@@ -32,10 +29,8 @@ namespace BaiChuanModdingCore
 				__result = CoroutineTaskWrapper.Wrap(__result, originalGameObject =>
 				{
 					bool success = patcher.DoPatching(originalGameObject);
-					if (!success)
-						BaiChuanModdingCore.logger?.LogError("Failed to run patcher ASYNC on TechType " + __state);
-					else
-						BaiChuanModdingCore.logger?.LogMessage("Successed to run patcher on TechType " + __state);
+					if (!success) BaiChuanModdingCore.logger?.LogError("Failed to run patcher ASYNC on TechType " + __state);
+					else BaiChuanModdingCore.logger?.LogMessage("Succeeded to run patcher on TechType " + __state);
 					return originalGameObject;
 				});
 			}

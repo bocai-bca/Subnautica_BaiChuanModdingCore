@@ -35,12 +35,12 @@ public class Patch_Inventory_LoseItems
 		if (player.currentSub != null && player.currentWaterPark == null)
 		{
 			shouldReturn = true;
-			BaiChuanModdingCore.logger?.LogWarning("DropAllOnDeath cancelled, Player.currentSub != null && Player.currentWaterPark == null.");
+			BaiChuanModdingCore.logger?.LogWarning("DropAllOnDeath canceled, Player.currentSub != null && Player.currentWaterPark == null.");
 		}
 		if (player.isPiloting)
 		{
 			shouldReturn = true;
-			BaiChuanModdingCore.logger?.LogWarning("DropAllOnDeath cancelled, Player.isPiloting == true.");
+			BaiChuanModdingCore.logger?.LogWarning("DropAllOnDeath canceled, Player.isPiloting == true.");
 		}
 		if (shouldReturn)
 		{

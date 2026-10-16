@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace BaiChuanModdingCore;
 
-public class NuclearReactorModify
+public static class NuclearReactorModify
 {
 	public static void DoModify()
 	{

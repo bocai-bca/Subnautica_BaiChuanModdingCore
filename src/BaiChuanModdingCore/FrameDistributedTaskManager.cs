@@ -32,7 +32,7 @@ public static class FrameDistributedTaskManager
 			taskPoint++;
 			return;
 		}
-		if (taskPoint >= tasks.Count) taskPoint = 0;
+		if (taskPoint >= tasks.Count) taskPoint = POINT_ROLLING_BACK_COOLDOWN;
 		if (tasks[taskPoint].Run()) taskPoint++;
 	}
 }

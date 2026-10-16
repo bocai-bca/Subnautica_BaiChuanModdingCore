@@ -34,6 +34,7 @@ namespace BaiChuanModdingCore
 				if (text.text != "Mods") continue;
 				tab.gameObject.SetActive(false);
 				BaiChuanModdingCore.logger?.LogMessage("Successed to hide Mods tab from OptionsPanel.");
+				return;
 			}
 			BaiChuanModdingCore.logger?.LogWarning("Failed to find Mods tab from OptionsPanel.");
 		}
