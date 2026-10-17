@@ -27,13 +27,18 @@ public static class FrameDistributedTaskManager
 	
 	public static void Update()
 	{
+		// 我居然在栽在这个破地方因为一个极其简单的问题修了两遍才写对，deepseek我向你致以最高的敬意，你是传奇审阅王
 		if (tasks.Count <= 0) return;
-		if (taskPoint <= 0)
+		if (taskPoint < 0)
 		{
 			taskPoint++;
 			return;
 		}
-		if (taskPoint >= tasks.Count) taskPoint = POINT_ROLLING_BACK_COOLDOWN;
+		if (taskPoint >= tasks.Count)
+		{
+			taskPoint = POINT_ROLLING_BACK_COOLDOWN;
+			return;
+		}
 		if (tasks[taskPoint].Run()) taskPoint++;
 	}
 }
