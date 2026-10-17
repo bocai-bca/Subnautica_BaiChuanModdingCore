@@ -27,7 +27,8 @@ public static class FrameDistributedTaskManager
 	
 	public static void Update()
 	{
-		if (tasks.Count <= 0)
+		if (tasks.Count <= 0) return;
+		if (taskPoint <= 0)
 		{
 			taskPoint++;
 			return;

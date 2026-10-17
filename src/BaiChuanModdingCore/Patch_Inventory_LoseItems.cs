@@ -50,6 +50,10 @@ public class Patch_Inventory_LoseItems
 		BaiChuanModdingCore.logger?.LogMessage("Simulating death drop.");
 		List<Pickupable> pickupables = [];
 		pickupables.AddRange(Inventory.main.container.Select(item => item.item));
+		foreach (InventoryItem item in (IItemsContainer)Inventory.main.equipment) // IItemsContainer居然没继承IEnumerable，所以此处只能foreach不能LINQ
+		{
+			pickupables.Add(item.item);
+		}
 		foreach (Pickupable pickupable in pickupables)
 		{
 			Transform transform = MainCameraControl.main.transform;
