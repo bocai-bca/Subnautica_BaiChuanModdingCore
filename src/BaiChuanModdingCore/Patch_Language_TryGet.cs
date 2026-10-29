@@ -13,9 +13,9 @@ namespace BaiChuanModdingCore
 			{"Tooltip_SeamothTorpedoModule", "一个标准的水下发射装备，可以用于发射鱼雷\n<color=#FFA500>该模块只能装备在一到四号槽位</color>"},
 			{"Tooltip_VehicleStorageModule", "额外增加的4x4储存空间，适用于海蛾号和海虾号动力机甲\n<color=#FFA500>该模块只能装备在一到四号槽位</color>"},
 			{"SmallStorage", "白色潜影盒"},
-			{"Tooltip_SmallStorage", "拥有8x10的储物空间,似乎不是此方世界的产物\n<color=#FF3030FF>建议使用鼠标中键打开，F键可能导致潜影盒卷入次元夹缝</color>\n<color=#FF3030FF>重载时会导致室外的潜影盒空间缩水</color>"},
+			{"Tooltip_SmallStorage", "拥有8x10的储物空间,似乎不是此方世界的产物\n<color=#FF3030FF>建议使用鼠标中键打开，F键可能导致潜影盒卷入次元夹缝</color>\n<color=#FF3030FF>重载时会导致室外的潜影盒空间缩水</color>\n<color=#FF3030FF>储存鱼类尸体需要放入两层以上的潜影盒里以此逃过世界清除，严禁储存到其他任何地方</color>"},
 			{"LuggageBag", "灰色潜影盒"},
-			{"Tooltip_LuggageBag", "拥有8x10的储物空间,似乎不是此方世界的产物\n<color=#FF3030FF>建议使用鼠标中键打开，F键可能导致潜影盒卷入次元夹缝</color>\n<color=#FF3030FF>重载时会导致室外盒子空间缩水</color>"},
+			{"Tooltip_LuggageBag", "拥有8x10的储物空间,似乎不是此方世界的产物\n<color=#FF3030FF>建议使用鼠标中键打开，F键可能导致潜影盒卷入次元夹缝</color>\n<color=#FF3030FF>重载时会导致室外的潜影盒空间缩水</color>\n<color=#FF3030FF>储存鱼类尸体需要放入两层以上的潜影盒里以此逃过世界清除，严禁储存到其他任何地方</color>"},
 			{"Tooltip_Fabricator", "基础的工作台，将收集到的最基础的材料转化为有用的物品\n<color=#90EE90>批量制造绑定按键：鼠标滚轮</color>\n<color=#90EE90>拆解模式绑定按键：空格</color>"},
 			{"Tooltip_Seaglide", "通过螺旋桨转动来产生水下推动力\n<color=#90EE90>开关灯光绑定按键：双击右键</color>\n<color=#90EE90>超频冲刺绑定按键：Shift</color>"},
 			{"Tooltip_SmallLocker", "壁挂式储物柜，提供8x10的储物空间\n<color=#FF3030FF>重载时会导致空间缩水，建议使用其他柜子</color>"},
@@ -24,8 +24,8 @@ namespace BaiChuanModdingCore
 			{"Tooltip_Builder", "可用于建设基地和基地设施的工具\n<color=#FFA500>单人床已默认解锁</color>\n<color=#FFA500>FCS套件需要从FCS购买获得</color>"},
 			{"Tooltip_Skyray", "一只体型中等的燕子鱼，没有人造物质的痕迹。与4546B其他地区的同类们不同，火山口附近的燕子鱼们逐渐意识到，未知铁疙瘩附近的区域，对它们而言是无法飞跃的天堑"},
 			{"RepulsionCannon", "斥力炮"},
-			{"Tooltip_BaseWindow", "基地上的舷窗，安装在了墙面上\n<color=#FF3030FF>安装在管道的圆形侧面会导致无法建造与拆解</color>"},
 			{"Tooltip_BaseMoonpool", "载具停泊处，能耗很高\n<color=#FFA500>月池在适配已有基地时无法转向，如有需求建议优先造月池</color>\n<color=#FFA500>月池在预览建造状态不会有管道链接，正常建造即可</color>"},
+			{"Tooltip_Exosuit", "能让穿戴者在任何极端环境行走自如。\n<color=#FFA500>工作台制造功能仅限逃生舱使用，所有由工作台制造的海虾号都会在逃生舱附近生成</color>"},
 		};
 
 		public static void Prefix(string key, out string? __state)
