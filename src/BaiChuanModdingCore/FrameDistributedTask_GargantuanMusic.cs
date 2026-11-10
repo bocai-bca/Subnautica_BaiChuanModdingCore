@@ -86,29 +86,47 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 		return true;
 	}
 
+	private static readonly string[] KnownGargantuanPaths =
+	{
+		// 原版/旧版模组使用的层级
+		"Global Root/GargantuanVoid(Clone)",
+		// ReturnOfTheAncients 运行时实际观察到的层级
+		"SerializerEmptyGameObject/GargantuanVoid(Clone)",
+		// 直接挂在 Landscape 下的情况
+		"GargantuanVoid(Clone)",
+		// 实体被 CellRoot 接管后的可能层级
+		"Cells/CellRoot(Clone)/GargantuanVoid(Clone)",
+	};
+
 	public static bool FindGargantuan()
 	{
 		if (gargantuanGameObject != null) return true;
 
-		// 优先检查原版/部分模组使用的层级：
-		// Landscape/Global Root/GargantuanVoid(Clone)
 		Scene sceneMain = SceneManager.GetSceneByName("Main");
 		if (sceneMain.IsValid() && sceneMain.isLoaded)
 		{
 			foreach (GameObject gameObject in sceneMain.GetRootGameObjects())
 			{
+				// 少数情况下 GargantuanVoid 直接作为场景根对象存在
+				if (gameObject.name == "GargantuanVoid(Clone)")
+				{
+					gargantuanGameObject = gameObject;
+					return true;
+				}
+
 				if (gameObject.name != "Landscape") continue;
-				if (gameObject.transform.Find("Global Root/GargantuanVoid(Clone)") is not { } transform) continue;
-				gargantuanGameObject = transform.gameObject;
-				return true;
+
+				// 只使用已知路径，暂不做全场景遍历
+				foreach (string path in KnownGargantuanPaths)
+				{
+					if (gameObject.transform.Find(path) is not { } transform) continue;
+					gargantuanGameObject = transform.gameObject;
+					return true;
+				}
 			}
 		}
 
-		// ReturnOfTheAncients 生成 GargantuanVoid 时没有 SetParent，
-		// 对象实际位于场景根节点，因此上面的 Landscape 路径找不到。
-		// 这里补一层按对象名查找，兼容场景根节点生成方式。
-		gargantuanGameObject = GameObject.Find("GargantuanVoid(Clone)");
-		return gargantuanGameObject != null;
+		return false;
 	}
 	
 	public static void PlaySoundEntering()
