@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Reflection;
 using FMOD;
@@ -89,21 +89,26 @@ public class FrameDistributedTask_GargantuanMusic: IFrameDistributedTask
 	public static bool FindGargantuan()
 	{
 		if (gargantuanGameObject != null) return true;
+
+		// 优先检查原版/部分模组使用的层级：
+		// Landscape/Global Root/GargantuanVoid(Clone)
 		Scene sceneMain = SceneManager.GetSceneByName("Main");
-		if (!sceneMain.IsValid() || !sceneMain.isLoaded)
+		if (sceneMain.IsValid() && sceneMain.isLoaded)
 		{
-			//BaiChuanModdingCore.logger?.LogError("Could not get scene Main.");
-			return false;
+			foreach (GameObject gameObject in sceneMain.GetRootGameObjects())
+			{
+				if (gameObject.name != "Landscape") continue;
+				if (gameObject.transform.Find("Global Root/GargantuanVoid(Clone)") is not { } transform) continue;
+				gargantuanGameObject = transform.gameObject;
+				return true;
+			}
 		}
-		foreach (GameObject gameObject in sceneMain.GetRootGameObjects())
-		{
-			if (gameObject.name != "Landscape") continue;
-			if (gameObject.transform.Find("Global Root/GargantuanVoid(Clone)") is not { } transform) continue;
-			gargantuanGameObject = transform.gameObject;
-			return true;
-		}
-		//BaiChuanModdingCore.logger?.LogError("Could not get GameObject of GargantuanVoid.");
-		return false;
+
+		// ReturnOfTheAncients 生成 GargantuanVoid 时没有 SetParent，
+		// 对象实际位于场景根节点，因此上面的 Landscape 路径找不到。
+		// 这里补一层按对象名查找，兼容场景根节点生成方式。
+		gargantuanGameObject = GameObject.Find("GargantuanVoid(Clone)");
+		return gargantuanGameObject != null;
 	}
 	
 	public static void PlaySoundEntering()
