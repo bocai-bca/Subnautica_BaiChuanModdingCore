@@ -47,6 +47,7 @@
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.CoreModule.dll"/>
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.dll"/>
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.UI.dll"/>
+        <Reference Include="$(SubnauticaData)\Managed\UnityEngine.UIModule.dll"/>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BaiChuanModdingCore.cs" />
@@ -62,6 +63,7 @@
         <Compile Include="PatcherBase.cs" />
         <Compile Include="Patchers\PrecursorIonBattery.cs" />
         <Compile Include="Patchers\PrecursorIonPowerCell.cs" />
+        <Compile Include="Patches\FreedomRestrictions.cs" />
         <Compile Include="PatcherManager.cs" />
         <Compile Include="Patch_CraftData.cs" />
         <Compile Include="NuclearReactorModify.cs" />
