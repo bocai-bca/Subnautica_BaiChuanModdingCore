@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using BaiChuanModdingCore.Features.AutoCpuAffinity;
+using BaiChuanModdingCore.Features.MosasaurusSpawnPoints;
 using BaiChuanModdingCore.Features.PrawnSuitFabricator;
 using BepInEx;
 using BepInEx.Configuration;
@@ -20,6 +21,7 @@ namespace BaiChuanModdingCore
 			logger = Logger;
 			PrawnSuitFabricatorFeature.Initialize(Config, Logger);
 			AutoCpuAffinityFeature.Initialize(Config, Logger, this);
+			MosasaurusSpawnPointsFeature.Initialize(Logger, this);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));

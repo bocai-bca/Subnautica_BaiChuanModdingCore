@@ -62,6 +62,7 @@
         <Compile Include="MainMenuMusicModded.cs" />
         <Compile Include="PatcherBase.cs" />
         <Compile Include="Features\AutoCpuAffinity\AutoCpuAffinityFeature.cs" />
+        <Compile Include="Features\MosasaurusSpawnPoints\MosasaurusSpawnPointsFeature.cs" />
         <Compile Include="Features\PrawnSuitFabricator\PrawnSuitFabricatorFeature.cs" />
         <Compile Include="Features\PrawnSuitFabricator\PrawnSuitFabricatorPickupPatch.cs" />
         <Compile Include="Patchers\PrecursorIonBattery.cs" />
