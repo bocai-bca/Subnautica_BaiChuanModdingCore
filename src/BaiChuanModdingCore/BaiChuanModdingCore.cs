@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using BaiChuanModdingCore.Features.PrawnSuitFabricator;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
@@ -16,6 +17,7 @@ namespace BaiChuanModdingCore
 		{
 			Instance = this;
 			logger = Logger;
+			PrawnSuitFabricatorFeature.Initialize(Config, Logger);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));
@@ -55,6 +57,11 @@ namespace BaiChuanModdingCore
 
 		private void Update()
 		{
+			if (PrawnSuitFabricatorFeature.Active)
+			{
+				PrawnSuitFabricatorFeature.Update();
+			}
+
 			FrameDistributedTaskManager.Update();
 		}
 

@@ -61,6 +61,8 @@
         <Compile Include="Patch_Language_TryGet.cs" />
         <Compile Include="MainMenuMusicModded.cs" />
         <Compile Include="PatcherBase.cs" />
+        <Compile Include="Features\PrawnSuitFabricator\PrawnSuitFabricatorFeature.cs" />
+        <Compile Include="Features\PrawnSuitFabricator\PrawnSuitFabricatorPickupPatch.cs" />
         <Compile Include="Patchers\PrecursorIonBattery.cs" />
         <Compile Include="Patchers\PrecursorIonPowerCell.cs" />
         <Compile Include="Patches\FreedomRestrictions.cs" />
