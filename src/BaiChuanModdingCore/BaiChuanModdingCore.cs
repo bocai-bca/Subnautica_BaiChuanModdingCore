@@ -3,6 +3,7 @@ using System.Reflection;
 using BaiChuanModdingCore.Features.AutoCpuAffinity;
 using BaiChuanModdingCore.Features.MosasaurusSpawnPoints;
 using BaiChuanModdingCore.Features.PrawnSuitFabricator;
+using BaiChuanModdingCore.Features.TankModuleInstaller;
 using BaiChuanModdingCore.Features.TooltipRainbowGradient;
 using BepInEx;
 using BepInEx.Configuration;
@@ -24,6 +25,7 @@ namespace BaiChuanModdingCore
 			AutoCpuAffinityFeature.Initialize(Config, Logger, this);
 			MosasaurusSpawnPointsFeature.Initialize(Logger, this);
 			TooltipRainbowGradientFeature.Initialize(Config, Logger);
+			TankModuleInstallerFeature.Initialize(Logger);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));

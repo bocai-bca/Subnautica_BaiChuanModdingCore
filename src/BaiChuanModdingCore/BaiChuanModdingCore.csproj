@@ -64,6 +64,8 @@
         <Compile Include="Features\AutoCpuAffinity\AutoCpuAffinityFeature.cs" />
         <Compile Include="Features\MosasaurusSpawnPoints\MosasaurusSpawnPointsFeature.cs" />
         <Compile Include="Features\PrawnSuitFabricator\PrawnSuitFabricatorFeature.cs" />
+        <Compile Include="Features\TankModuleInstaller\TankModuleInstallerFeature.cs" />
+        <Compile Include="Features\TankModuleInstaller\TankModuleInstallerPatch.cs" />
         <Compile Include="Features\TooltipRainbowGradient\TooltipRainbowGradientFeature.cs" />
         <Compile Include="Features\TooltipRainbowGradient\TooltipRainbowGradientPatch.cs" />
         <Compile Include="Features\PrawnSuitFabricator\PrawnSuitFabricatorPickupPatch.cs" />
