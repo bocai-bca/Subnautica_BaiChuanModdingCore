@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using BaiChuanModdingCore.Features.AutoCpuAffinity;
 using BaiChuanModdingCore.Features.PrawnSuitFabricator;
 using BepInEx;
 using BepInEx.Configuration;
@@ -18,6 +19,7 @@ namespace BaiChuanModdingCore
 			Instance = this;
 			logger = Logger;
 			PrawnSuitFabricatorFeature.Initialize(Config, Logger);
+			AutoCpuAffinityFeature.Initialize(Config, Logger, this);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));
