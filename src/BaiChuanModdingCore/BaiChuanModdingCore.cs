@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using BaiChuanModdingCore.Features.AutoCpuAffinity;
+using BaiChuanModdingCore.Features.LookRotationGuard;
 using BaiChuanModdingCore.Features.MosasaurusSpawnPoints;
 using BaiChuanModdingCore.Features.PrawnSuitFabricator;
 using BaiChuanModdingCore.Features.TankModuleInstaller;
@@ -26,6 +27,7 @@ namespace BaiChuanModdingCore
 			MosasaurusSpawnPointsFeature.Initialize(Logger, this);
 			TooltipRainbowGradientFeature.Initialize(Config, Logger);
 			TankModuleInstallerFeature.Initialize(Logger);
+			LookRotationGuardPatch.Initialize(Logger);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));
