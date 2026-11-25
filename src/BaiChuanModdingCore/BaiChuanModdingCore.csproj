@@ -65,6 +65,7 @@
         <Compile Include="Features\LookRotationGuard\LookRotationGuardPatch.cs" />
         <Compile Include="Features\MosasaurusSpawnPoints\MosasaurusSpawnPointsFeature.cs" />
         <Compile Include="Features\PrawnSuitFabricator\PrawnSuitFabricatorFeature.cs" />
+        <Compile Include="Features\ResourceTrackerGuard\ResourceTrackerGuardPatch.cs" />
         <Compile Include="Features\TankModuleInstaller\TankModuleInstallerFeature.cs" />
         <Compile Include="Features\TankModuleInstaller\TankModuleInstallerPatch.cs" />
         <Compile Include="Features\TooltipRainbowGradient\TooltipRainbowGradientFeature.cs" />
