@@ -4,6 +4,7 @@ using BaiChuanModdingCore.Features.AchievementFontFix;
 using BaiChuanModdingCore.Features.AquariumOverflowResearchStation;
 using BaiChuanModdingCore.Features.ArenaTeleportBlocker;
 using BaiChuanModdingCore.Features.AutoCpuAffinity;
+using BaiChuanModdingCore.Features.CreatureHpFix;
 using BaiChuanModdingCore.Features.LookRotationGuard;
 using BaiChuanModdingCore.Features.MosasaurusSpawnPoints;
 using BaiChuanModdingCore.Features.PrawnSuitFabricator;
@@ -36,6 +37,7 @@ namespace BaiChuanModdingCore
 			AchievementFontFixFeature.Initialize(harmony, Logger);
 			AquariumOverflowResearchStationFeature.Initialize(harmony, Logger);
 			ArenaTeleportBlockerFeature.Initialize(Config, harmony, Logger, this);
+			CreatureHpFixFeature.Initialize(Logger, this);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
@@ -58,9 +58,6 @@ namespace BaiChuanModdingCore
 					break;
 				case SeaDragon seaDragon:
 					SeaDragon_Start_Postfix(seaDragon);
-					break;
-				case Warper warper:
-					Warper_Start_Postfix(warper);
 					break;
 				case Reefback reefback:
 					Reefback_Start_Postfix(reefback);
@@ -144,18 +141,5 @@ namespace BaiChuanModdingCore
 			liveMixin.data.maxHealth = liveMixin.health = 225000f;
 		}
 		
-		public static void Warper_Start_Postfix(Warper __instance)
-		{
-			LiveMixin liveMixin = __instance.GetComponent<LiveMixin>();
-			if (liveMixin == null)
-			{
-				return;
-			}
-			if (Mathf.Approximately(liveMixin.data.maxHealth, 8100f))
-			{
-				return;
-			}
-			liveMixin.data.maxHealth = liveMixin.health = 8100f;
-		}
 	}
 }
