@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using BaiChuanModdingCore.Features.AchievementFontFix;
+using BaiChuanModdingCore.Features.AquariumOverflowResearchStation;
 using BaiChuanModdingCore.Features.AutoCpuAffinity;
 using BaiChuanModdingCore.Features.LookRotationGuard;
 using BaiChuanModdingCore.Features.MosasaurusSpawnPoints;
@@ -32,6 +33,7 @@ namespace BaiChuanModdingCore
 			LookRotationGuardPatch.Initialize(Logger);
 			ResourceTrackerGuardPatch.Initialize(Logger);
 			AchievementFontFixFeature.Initialize(harmony, Logger);
+			AquariumOverflowResearchStationFeature.Initialize(harmony, Logger);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));
