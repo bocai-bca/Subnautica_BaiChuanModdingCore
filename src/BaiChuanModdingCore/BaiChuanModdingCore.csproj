@@ -61,6 +61,7 @@
         <Compile Include="Patch_Language_TryGet.cs" />
         <Compile Include="MainMenuMusicModded.cs" />
         <Compile Include="PatcherBase.cs" />
+        <Compile Include="Features\AchievementFontFix\AchievementFontFixFeature.cs" />
         <Compile Include="Features\AutoCpuAffinity\AutoCpuAffinityFeature.cs" />
         <Compile Include="Features\LookRotationGuard\LookRotationGuardPatch.cs" />
         <Compile Include="Features\MosasaurusSpawnPoints\MosasaurusSpawnPointsFeature.cs" />
