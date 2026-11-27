@@ -6,6 +6,7 @@ using BaiChuanModdingCore.Features.AquariumOverflowResearchStation;
 using BaiChuanModdingCore.Features.ArenaTeleportBlocker;
 using BaiChuanModdingCore.Features.AuroraSecondExplosion;
 using BaiChuanModdingCore.Features.AutoCpuAffinity;
+using BaiChuanModdingCore.Features.BlueprintTrackerPerf;
 using BaiChuanModdingCore.Features.BuildingTweaksPerf;
 using BaiChuanModdingCore.Features.LeviathanListExpander;
 using BaiChuanModdingCore.Features.CreatureHpFix;
@@ -48,6 +49,7 @@ namespace BaiChuanModdingCore
 			AnthVoidTentacleFixFeature.Initialize(harmony, Logger);
 			EasyCraftCreativeFixFeature.Initialize(harmony, Logger);
 			BuildingTweaksPerfFeature.Initialize(harmony, Logger);
+			BlueprintTrackerPerfFeature.Initialize(harmony, Logger);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));
