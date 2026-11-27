@@ -68,6 +68,7 @@
         <Compile Include="Features\AuroraSecondExplosion\AuroraSecondExplosionFeature.cs" />
         <Compile Include="Features\AutoCpuAffinity\AutoCpuAffinityFeature.cs" />
         <Compile Include="Features\CreatureHpFix\CreatureHpFixFeature.cs" />
+        <Compile Include="Features\LeviathanListExpander\LeviathanListExpanderFeature.cs" />
         <Compile Include="Features\CreatureHpFix\CreatureHpFixPatch.cs" />
         <Compile Include="Features\LookRotationGuard\LookRotationGuardPatch.cs" />
         <Compile Include="Features\MosasaurusSpawnPoints\MosasaurusSpawnPointsFeature.cs" />
