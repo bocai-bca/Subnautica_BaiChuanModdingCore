@@ -11,6 +11,7 @@ using BaiChuanModdingCore.Features.BuildingTweaksPerf;
 using BaiChuanModdingCore.Features.LeviathanListExpander;
 using BaiChuanModdingCore.Features.CreatureHpFix;
 using BaiChuanModdingCore.Features.EasyCraftCreativeFix;
+using BaiChuanModdingCore.Features.EcoceanPerf;
 using BaiChuanModdingCore.Features.LookRotationGuard;
 using BaiChuanModdingCore.Features.MosasaurusSpawnPoints;
 using BaiChuanModdingCore.Features.PrawnSuitFabricator;
@@ -50,6 +51,7 @@ namespace BaiChuanModdingCore
 			EasyCraftCreativeFixFeature.Initialize(harmony, Logger);
 			BuildingTweaksPerfFeature.Initialize(harmony, Logger);
 			BlueprintTrackerPerfFeature.Initialize(harmony, Logger);
+			EcoceanPerfFeature.Initialize(harmony, Logger);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));

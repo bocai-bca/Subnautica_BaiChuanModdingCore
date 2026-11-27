@@ -72,6 +72,7 @@
         <Compile Include="Features\CreatureHpFix\CreatureHpFixFeature.cs" />
         <Compile Include="Features\EasyCraftCreativeFix\EasyCraftCreativeFixFeature.cs" />
         <Compile Include="Features\EasyCraftCreativeFix\EasyCraftCreativePatch.cs" />
+        <Compile Include="Features\EcoceanPerf\EcoceanPerfFeature.cs" />
         <Compile Include="Features\LeviathanListExpander\LeviathanListExpanderFeature.cs" />
         <Compile Include="Features\CreatureHpFix\CreatureHpFixPatch.cs" />
         <Compile Include="Features\LookRotationGuard\LookRotationGuardPatch.cs" />
