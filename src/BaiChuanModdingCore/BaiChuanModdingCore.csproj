@@ -67,6 +67,7 @@
         <Compile Include="Features\ArenaTeleportBlocker\ArenaTeleportBlockerFeature.cs" />
         <Compile Include="Features\AuroraSecondExplosion\AuroraSecondExplosionFeature.cs" />
         <Compile Include="Features\AutoCpuAffinity\AutoCpuAffinityFeature.cs" />
+        <Compile Include="Features\BuildingTweaksPerf\BuildingTweaksPerfFeature.cs" />
         <Compile Include="Features\CreatureHpFix\CreatureHpFixFeature.cs" />
         <Compile Include="Features\EasyCraftCreativeFix\EasyCraftCreativeFixFeature.cs" />
         <Compile Include="Features\EasyCraftCreativeFix\EasyCraftCreativePatch.cs" />
