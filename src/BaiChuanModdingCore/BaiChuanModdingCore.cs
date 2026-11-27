@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using BaiChuanModdingCore.Features.AchievementFontFix;
+using BaiChuanModdingCore.Features.AnthVoidTentacleFix;
 using BaiChuanModdingCore.Features.AquariumOverflowResearchStation;
 using BaiChuanModdingCore.Features.ArenaTeleportBlocker;
 using BaiChuanModdingCore.Features.AutoCpuAffinity;
@@ -38,6 +39,7 @@ namespace BaiChuanModdingCore
 			AquariumOverflowResearchStationFeature.Initialize(harmony, Logger);
 			ArenaTeleportBlockerFeature.Initialize(Config, harmony, Logger, this);
 			CreatureHpFixFeature.Initialize(Logger, this);
+			AnthVoidTentacleFixFeature.Initialize(harmony, Logger);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));

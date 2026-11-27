@@ -62,6 +62,7 @@
         <Compile Include="MainMenuMusicModded.cs" />
         <Compile Include="PatcherBase.cs" />
         <Compile Include="Features\AchievementFontFix\AchievementFontFixFeature.cs" />
+        <Compile Include="Features\AnthVoidTentacleFix\AnthVoidTentacleFixFeature.cs" />
         <Compile Include="Features\AquariumOverflowResearchStation\AquariumOverflowResearchStationFeature.cs" />
         <Compile Include="Features\ArenaTeleportBlocker\ArenaTeleportBlockerFeature.cs" />
         <Compile Include="Features\AutoCpuAffinity\AutoCpuAffinityFeature.cs" />
