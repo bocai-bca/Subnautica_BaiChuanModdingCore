@@ -8,6 +8,7 @@ using BaiChuanModdingCore.Features.AuroraSecondExplosion;
 using BaiChuanModdingCore.Features.AutoCpuAffinity;
 using BaiChuanModdingCore.Features.LeviathanListExpander;
 using BaiChuanModdingCore.Features.CreatureHpFix;
+using BaiChuanModdingCore.Features.EasyCraftCreativeFix;
 using BaiChuanModdingCore.Features.LookRotationGuard;
 using BaiChuanModdingCore.Features.MosasaurusSpawnPoints;
 using BaiChuanModdingCore.Features.PrawnSuitFabricator;
@@ -44,6 +45,7 @@ namespace BaiChuanModdingCore
 			LeviathanListExpanderFeature.Initialize(Config, harmony, Logger, this);
 			CreatureHpFixFeature.Initialize(Logger, this);
 			AnthVoidTentacleFixFeature.Initialize(harmony, Logger);
+			EasyCraftCreativeFixFeature.Initialize(harmony, Logger);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));
