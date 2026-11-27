@@ -65,6 +65,7 @@
         <Compile Include="Features\AnthVoidTentacleFix\AnthVoidTentacleFixFeature.cs" />
         <Compile Include="Features\AquariumOverflowResearchStation\AquariumOverflowResearchStationFeature.cs" />
         <Compile Include="Features\ArenaTeleportBlocker\ArenaTeleportBlockerFeature.cs" />
+        <Compile Include="Features\AuroraSecondExplosion\AuroraSecondExplosionFeature.cs" />
         <Compile Include="Features\AutoCpuAffinity\AutoCpuAffinityFeature.cs" />
         <Compile Include="Features\CreatureHpFix\CreatureHpFixFeature.cs" />
         <Compile Include="Features\CreatureHpFix\CreatureHpFixPatch.cs" />

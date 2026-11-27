@@ -4,6 +4,7 @@ using BaiChuanModdingCore.Features.AchievementFontFix;
 using BaiChuanModdingCore.Features.AnthVoidTentacleFix;
 using BaiChuanModdingCore.Features.AquariumOverflowResearchStation;
 using BaiChuanModdingCore.Features.ArenaTeleportBlocker;
+using BaiChuanModdingCore.Features.AuroraSecondExplosion;
 using BaiChuanModdingCore.Features.AutoCpuAffinity;
 using BaiChuanModdingCore.Features.CreatureHpFix;
 using BaiChuanModdingCore.Features.LookRotationGuard;
@@ -38,6 +39,7 @@ namespace BaiChuanModdingCore
 			AchievementFontFixFeature.Initialize(harmony, Logger);
 			AquariumOverflowResearchStationFeature.Initialize(harmony, Logger);
 			ArenaTeleportBlockerFeature.Initialize(Config, harmony, Logger, this);
+			AuroraSecondExplosionFeature.Initialize(Config, Logger, this);
 			CreatureHpFixFeature.Initialize(Logger, this);
 			AnthVoidTentacleFixFeature.Initialize(harmony, Logger);
 			try
