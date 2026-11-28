@@ -14,7 +14,7 @@ namespace BaiChuanModdingCore.Features.SocknauticaPdaEntries
 	///
 	/// 注意：这里只注册 EntryData，不默认解锁。
 	/// RocketSelfDestruct1/2 在语音播放时写入日志；
-	/// RocketSelfDestruct1 同时解锁“一封来自 Alterra 的信”。
+	/// 两条语音都会尝试解锁“一封来自 Alterra 的信”，先到者生效。
 	/// </summary>
 	internal static class SocknauticaPdaEntriesFeature
 	{

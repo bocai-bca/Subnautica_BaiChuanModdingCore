@@ -48,6 +48,10 @@
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.dll"/>
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.UI.dll"/>
         <Reference Include="$(SubnauticaData)\Managed\UnityEngine.UIModule.dll"/>
+    <Reference Include="$(SubnauticaData)\Managed\UnityEngine.AssetBundleModule.dll"/>
+    <Reference Include="$(SubnauticaData)\Managed\UnityEngine.JSONSerializeModule.dll"/>
+    <Reference Include="$(SubnauticaData)\Managed\UnityEngine.PhysicsModule.dll"/>
+    <Reference Include="$(SubnauticaData)\Managed\UnityEngine.InputLegacyModule.dll"/>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BaiChuanModdingCore.cs" />
@@ -75,6 +79,8 @@
         <Compile Include="Features\EcoceanPerf\EcoceanPerfFeature.cs" />
         <Compile Include="Features\SeamothModuleCompat\SeamothModuleCompatFeature.cs" />
         <Compile Include="Features\SocknauticaPdaEntries\SocknauticaPdaEntriesFeature.cs" />
+        <Compile Include="Features\SocknauticaArenaWarning\SocknauticaArenaWarningFeature.cs" />
+        <Compile Include="Features\SocknauticaArenaDeath\SocknauticaArenaDeathFeature.cs" />
         <Compile Include="Features\LeviathanListExpander\LeviathanListExpanderFeature.cs" />
         <Compile Include="Features\CreatureHpFix\CreatureHpFixPatch.cs" />
         <Compile Include="Features\LookRotationGuard\LookRotationGuardPatch.cs" />
