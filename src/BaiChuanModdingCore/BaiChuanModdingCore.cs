@@ -13,6 +13,7 @@ using BaiChuanModdingCore.Features.CreatureHpFix;
 using BaiChuanModdingCore.Features.EasyCraftCreativeFix;
 using BaiChuanModdingCore.Features.EcoceanPerf;
 using BaiChuanModdingCore.Features.SeamothModuleCompat;
+using BaiChuanModdingCore.Features.SocknauticaPdaEntries;
 using BaiChuanModdingCore.Features.LookRotationGuard;
 using BaiChuanModdingCore.Features.MosasaurusSpawnPoints;
 using BaiChuanModdingCore.Features.PrawnSuitFabricator;
@@ -54,6 +55,7 @@ namespace BaiChuanModdingCore
 			BlueprintTrackerPerfFeature.Initialize(harmony, Logger);
 			EcoceanPerfFeature.Initialize(harmony, Logger);
 			SeamothModuleCompatFeature.Initialize(harmony, Logger);
+			SocknauticaPdaEntriesFeature.Initialize(harmony, Logger);
 			try
 			{
 				HarmonyMethod prefix = new(typeof(Patch_CraftData).GetMethod("Prefix", BindingFlags.Static | BindingFlags.Public));

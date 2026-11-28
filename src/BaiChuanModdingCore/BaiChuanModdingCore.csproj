@@ -74,6 +74,7 @@
         <Compile Include="Features\EasyCraftCreativeFix\EasyCraftCreativePatch.cs" />
         <Compile Include="Features\EcoceanPerf\EcoceanPerfFeature.cs" />
         <Compile Include="Features\SeamothModuleCompat\SeamothModuleCompatFeature.cs" />
+        <Compile Include="Features\SocknauticaPdaEntries\SocknauticaPdaEntriesFeature.cs" />
         <Compile Include="Features\LeviathanListExpander\LeviathanListExpanderFeature.cs" />
         <Compile Include="Features\CreatureHpFix\CreatureHpFixPatch.cs" />
         <Compile Include="Features\LookRotationGuard\LookRotationGuardPatch.cs" />
